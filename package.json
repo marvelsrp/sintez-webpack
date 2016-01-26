@@ -1,0 +1,32 @@
+{
+  "name": "sintez-webpack",
+  "version": "0.0.1",
+  "description": "Sintez",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "./node_modules/.bin/babel -d ./ ./src",
+    "dev": "./node_modules/.bin/babel -d ./ ./src --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankland/sintez-webpack.git"
+  },
+  "author": "tuchk4 <valeriy.sorokobatko@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankland/sintez-webpack/issues"
+  },
+  "homepage": "https://github.com/frankland/sintez-webpack#readme",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "base-events": "0.0.3",
+    "lodash": "^3.9.3",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
