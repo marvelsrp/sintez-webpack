@@ -28,7 +28,7 @@
     "lodash": "^3.9.3",
     "webpack": "^1.12.12",
     "webpack-build-logger": "0.0.3",
-    "webpack-code-splitter": "0.0.3",
+    "webpack-code-splitter": "0.0.4",
     "webpack-dev-server": "^1.14.1"
   }
 }
