@@ -12,9 +12,17 @@ import ProvidePlugin from 'webpack/lib/ProvidePlugin';
 import clone from 'lodash/cloneDeep';
 import setter from 'lodash/set';
 
+const normalizePathExpr =  expr => expr
+    .replace(/\\\//g, `\\${path.sep}`)
+    .replace(/\//g, `\\${path.sep}`);
+
 
 const getLoadersMap = (applicationConfig) => {
-  const regexp = (expr) => new RegExp(`${applicationConfig.src}.+${expr}`);
+  const regexp = (expr) => {
+    let normalized = normalizePathExpr(`${applicationConfig.src}.+${expr}`);
+    return new RegExp(normalized);
+  };
+
   const loaderPresetsMap = new Map();
 
   loaderPresetsMap.set('babel', {
@@ -117,7 +125,19 @@ const generateConfig = (config, applicationConfig) => {
   }
 
   if (config.loaders) {
-    webpackConfig.module.loaders = webpackConfig.module.loaders.concat(config.loaders);
+    let loaders = [];
+    for (let loader of config.loaders) {
+      let normalizedTest = normalizePathExpr(loader.test.source);
+      let test = new RegExp(normalizedTest);
+
+      let normalizedLoader = Object.assign({}, loader, {
+        test
+      });
+
+      loaders.push(normalizedLoader);
+    }
+
+    webpackConfig.module.loaders = webpackConfig.module.loaders.concat(loaders);
   }
 
   if (config.optimize) {
