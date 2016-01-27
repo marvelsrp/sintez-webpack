@@ -25,7 +25,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "base-events": "0.0.3",
-    "lodash": "^3.9.3",
+    "lodash": "^4.0.1",
     "webpack": "^1.12.12",
     "webpack-build-logger": "0.0.3",
     "webpack-code-splitter": "0.0.4",
