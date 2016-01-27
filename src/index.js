@@ -1,5 +1,3 @@
-
-
 import WebpackMutator from './webpack-mutator';
 
 module.exports = (key, config, applicationConfig) => {

@@ -12,9 +12,12 @@ import ProvidePlugin from 'webpack/lib/ProvidePlugin';
 import clone from 'lodash/cloneDeep';
 import setter from 'lodash/set';
 
+
 const normalizePathExpr =  expr => expr
+    //        \/ -> \SEP
     .replace(/\\\//g, `\\${path.sep}`)
-    .replace(/\//g, `\\${path.sep}`);
+    //        /  -> SEP
+    .replace(/\//g, `${path.sep}`);
 
 
 const getLoadersMap = (applicationConfig) => {
