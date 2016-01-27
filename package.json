@@ -1,6 +1,6 @@
 {
   "name": "sintez-webpack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Sintez",
   "main": "index.js",
   "scripts": {
