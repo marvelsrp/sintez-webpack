@@ -14,11 +14,8 @@ import setter from 'lodash/set';
 
 
 const normalizePathExpr =  expr => expr
-    //        \/ -> \SEP
-    .replace(/\\\//g, `\\${path.sep}`)
-    //        /  -> SEP
-    .replace(/\//g, `${path.sep}`);
-
+  .replace(/([^\\])\//g, '$1\\/')
+  .replace(/\//g, path.sep);
 
 const getLoadersMap = (applicationConfig) => {
   const regexp = (expr) => {
