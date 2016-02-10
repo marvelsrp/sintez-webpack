@@ -217,7 +217,7 @@ export default class WebpackMutator extends BaseEvents {
     builder.run(cb);
   }
 
-  getServerConfig() {
+  getServer() {
     let builder = this.getBuilder();
 
     return new WebpackDevServer(builder, {
@@ -239,8 +239,8 @@ export default class WebpackMutator extends BaseEvents {
     });
   }
 
-  serve(cb = () => {}, config) {
-    let server = config || this.getServerConfig();
+  serve(cb = () => {}, instance) {
+    let server = instance || this.getServer();
 
     server.listen(this.port, this.host, () => {
 
