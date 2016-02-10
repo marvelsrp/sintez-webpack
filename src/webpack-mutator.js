@@ -217,10 +217,10 @@ export default class WebpackMutator extends BaseEvents {
     builder.run(cb);
   }
 
-  serve(cb = () => {}) {
+  getServer() {
     let builder = this.getBuilder();
 
-    let server = new WebpackDevServer(builder, {
+    return new WebpackDevServer(builder, {
       historyApiFallback: true,
       contentBase: this.applicationDest,
       quiet: true,
@@ -237,6 +237,10 @@ export default class WebpackMutator extends BaseEvents {
         colors: true
       }
     });
+  }
+
+  serve(cb = () => {}, instance) {
+    let server = instance || this.getServer();
 
     server.listen(this.port, this.host, () => {
 
